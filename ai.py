@@ -4,6 +4,8 @@ import tensorflow as tf
 from tensorflow import keras
 import matplotlib.pyplot as plt
 
+# you could edit it from 0 to 100
+p_transmission_value = 2
 
 def load_data():
     column_names = ["POfTransmission", "Day", "NrOfSus", "NrOfInf", "NrOfRec"]
@@ -33,7 +35,7 @@ model = keras.Sequential([
 ])
 
 days = list(range(0, 500))
-p_transmission = [2 for _ in range(0, 500)]
+p_transmission = [p_transmission_value for _ in range(0, 500)]
 new_x = np.dstack((p_transmission, days))
 
 model.compile(optimizer='adam', loss='mse')
